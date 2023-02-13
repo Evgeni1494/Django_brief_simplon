@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from BriefSimplon import settings
 from django.contrib.auth.models import User
-
+from django import forms
 TIME_CHOICES = (
                         ("9 h", "9h"),
                         ("9h55", "9h55"),
@@ -25,4 +25,19 @@ class Appointment(models.Model):
     note = models.TextField(max_length=900, default='')
 
     def str(self):
-        return f"{self.user} | day: {self.day} | time: {self.time} | name :{self.user} | note:{self.note}" 
+        return f"{self.user} | day: {self.day} | time: {self.time} | name :{self.user} | note:{self.note}"
+    def notes(self):
+        return Note.objects.filter(appointment=self)
+    
+class Note(models.Model):
+    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name='appointment_notes')
+    text = models.TextField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ['text']
+    
+    

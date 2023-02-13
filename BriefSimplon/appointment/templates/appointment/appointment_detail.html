@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for appointment in appointments %}
+      <tr>
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.user }}</td>
+        <td>{{ appointment.day }}</td>
+        <td>{{ appointment.time }}</td>
+        <td>{{ appointment.note }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock content %}

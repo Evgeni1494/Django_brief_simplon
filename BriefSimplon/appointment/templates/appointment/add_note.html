@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Enregistrer</button>
+  
+
+  {% endblock content %}

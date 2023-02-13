@@ -21,6 +21,11 @@
                 <li><a href="">Dashboard</a></li>
                 {% if request.user.is_staff %}
                 <li><a href="{% url 'appointment:appointments' %}">All Appointments</a></li>
+                <ul>
+                    <a href="{% url 'appointment:appointment_detail' 2 %}">Notes</a>
+                    <a href="{% url 'appointment:add_note' 2 %}">Add_Notes</a>
+                </ul>
+
                 {% endif %}
                 {% else %}
                 

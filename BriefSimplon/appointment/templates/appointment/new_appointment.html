@@ -4,11 +4,7 @@
 <h1>Nouveau rendez-vous</h1>
 <form method="post">
   {% csrf_token %}
-  {{form_as_p}}
-  {{form.day}}
-  {{form.time}}
-  {{form.user}}
-  {{form.note}}
+  {{form.as_p}}
 
   <button type="submit">Enregistrer</button>
 </form>
