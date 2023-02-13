@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>Liste des rendez-vous</h1>
+<section>
+  {% for appointment in appointments  %}
+
+    <li>{{appointment.day}} | {{appointment.time}} | {{appointment.user}} | {{appointment.note}}</li>
+  {% endfor %}
+  
+</section>
+{% endblock %}

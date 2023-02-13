@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>src="https://cdn.tailwindcss.com"</script>
+    
+    <title>{% block title %}  {% endblock title %} | Title</title>
+</head>
+    <body>
+        <nav class = Navigation>
+            <a href="/" class= Logo>Puddle</a>
+            <ul class = ItemsNav>
+                <li><a href="">Contact</a></li>
+                <li><a href="{% url 'appointment:new_appointments' %}">RDV</a></li>
+                <li><a href="">Browse</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'core:logout' %}">Logout</a></li>
+                <li><a href="#">Inbox</a></li>
+                <li><a href="">Dashboard</a></li>
+                {% if request.user.is_staff %}
+                <li><a href="{% url 'appointment:appointments' %}">All Appointments</a></li>
+                {% endif %}
+                {% else %}
+                
+                <li><a href="{% url 'core:signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'core:login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class = BaseContent>
+        {% block content %}
+
+        {% endblock content %}
+        </div>
+        <footer class=Footer>
+            <div class=FooterInfo>
+                <h3 class=FooterInfoTitle>About</h3>
+                <p class=FooterText>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa molestias nostrum rem, ex eius eos? Recusandae quibusdam quidem, dolorum atque quis in ipsum excepturi dolore velit quam a vero molestias.</p>
+                <ul class=FooterMenuItems>
+                    <li><a href="#"></a>Contact</li>
+                    <li><a href="#"></a>A Propos</li>
+                    <li><a href="#"></a>Sign Up</li>
+                </ul>
+        </footer>
+    </body>
+</html>

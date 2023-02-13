@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+
+
+{% block title %}Sign up{% endblock title %}
+
+{% block content %}
+<div class=SignWindow>
+    <h1 class=TitleSignUp> Sign up</h1>
+    <form method='post' action=".">
+        {%csrf_token%}
+    
+
+        <div>
+            <label class=Label>
+                Username
+            </label><br>
+            {{form.username}}
+        </div>
+        <div>
+            <label class=Label>
+                Email
+            </label><br>
+            {{form.email}}
+        </div>
+        <div>
+            <label class=Label>
+                Password
+            </label><br>
+            {{form.password1}}
+        </div>
+        <div>
+            <label class=Label>
+                Repeat Password
+            </label><br>
+            {{form.password2}}
+        </div>
+
+        {% if form.errors or form.non_field_errors %}
+        <div>
+            {% for field in form %}
+                {{field.errors}}
+                {{form.non_field_errors}}
+            {% endfor %}
+        </div>
+
+        
+        {% endif %}
+        <button class=ButtonSubmit> Submit</button>
+    </form>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
