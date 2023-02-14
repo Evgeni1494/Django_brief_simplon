@@ -8,35 +8,44 @@ Welcome
 
 {% block content %}
 <div class=NewItemsDisplay>
-    <h2 class=TitleNewItems>New Items</h2>
-    <div class=GridItems>
-        {% for item in items %}
-        <div>
-            <a href="#">Click</a>
-            <div>
-                <img src="#" alt="">
-            </div>
-            <div>
-                <h2>{{item.name}}</h2>
-                <p>Price : {{item.price}}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    <h3 class=FooterInfoTitle>Mon Activité</h3>
+                <p class=FooterText>{% lorem 1 b random %}</p>
+    <h2 class=TitleNewItems>Services</h2>
+    <ul>
+        <li>
+            <h4> Remise en forme</h4>
+            {% lorem 1 b random %}
+        </li>
+    
+        <li>
+            <h4> Confiance en Soi</h4>
+            {% lorem 1 b random %}
+        </li>
+        <li>
+            <h4> Buisness Coaching</h4>
+            {% lorem 1 b random %}
+        </li>
+    </ul>
+    
 </div>
 <div class=NewItemsDisplay>
-    <h2 class=TitleNewItems>Categories</h2>
+    <h2 class=TitleNewItems>Retours Clients</h2>
     <div class=GridItems>
-        {% for category in categories %}
-            <div>
-                <a href="#"></a>
- 
-                <div>
-                    <h2>{{category.name}}</h2>
-                    <p> {{category.items.count}} Items</p>
-                </div>
-            </div>
-        {% endfor %}
+        <ul>
+            <li>
+                <h4> </h4>
+                {% lorem 1 b random %}
+            </li>
+            <li>
+                <h4> Julien</h4>
+                {% lorem 1 b random %}
+            </li>
+            <li>
+                <h4> Chloé</h4>
+                {% lorem 1 b random %}
+            </li>
+        </ul>
+        
     </div>
 </div>
 

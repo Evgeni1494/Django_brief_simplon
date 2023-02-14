@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Appointment
-from .forms import AppointmentForm
+
+from .forms import AppointmentForm, AddNote
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
 from django.contrib.auth.decorators import login_required
-from .models import Appointment, Note, NoteForm
+from .models import Appointment, Note
 
 
 
@@ -39,10 +39,18 @@ def appointment_detail(request, appointment_id):
 @login_required
 def add_note(request, appointment_id):
     if request.method == 'POST':
-        text = request.POST.get('text')
-        appointment = Appointment.objects.get(id=appointment_id)
-        Note.objects.create(appointment=appointment, text=text, created_by=request.user)
-        return redirect('appointment_detail', appointment_id=appointment_id)
-    return render(request, 'appointment/add_note.html')
+        form = AddNote(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.created_by = request.user
+            note.save()
+    
+            return redirect('appointment_detail', appointment_id=appointment_id)
+        # text = request.POST.get('text')
+        # appointment = Appointment.objects.get(id=appointment_id)
+        # Note.objects.create(appointment=appointment, text=text, created_by=request.user)
+    else:
+        form=AddNote() 
+    return render(request, 'appointment/add_note.html',{'form':form})
     
     

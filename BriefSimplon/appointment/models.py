@@ -34,10 +34,9 @@ class Note(models.Model):
     text = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+    def str(self):
+        return f"{self.appointment} | Note: {self.text}"
+
     
-class NoteForm(forms.ModelForm):
-    class Meta:
-        model = Note
-        fields = ['text']
     
     
