@@ -35,7 +35,7 @@ class Note(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     def str(self):
-        return f"{self.appointment} | Note: {self.text}"
+        return f"appointment : {self.appointment} | Note: {self.text}"
 
     
     

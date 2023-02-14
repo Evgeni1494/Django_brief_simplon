@@ -2,24 +2,14 @@
 
 {% block content %}
 <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>User</th>
-        <th>Day</th>
-        <th>Time</th>
-        <th>Note</th>
-      </tr>
-    </thead>
+    
     <tbody>
-      {% for appointment in appointments %}
-      <tr>
-        <td>{{ appointment.id }}</td>
-        <td>{{ appointment.user }}</td>
-        <td>{{ appointment.day }}</td>
-        <td>{{ appointment.time }}</td>
-        <td>{{ appointment.note }}</td>
-      </tr>
+      {% for note in notes %}
+    <ul>
+      <li> Par : {{note.created_by}}</li>
+        <li>Note : {{note.text}}</li>
+          <li> Client : {{note.appointment.str}}</li>
+    </ul>
       {% endfor %}
     </tbody>
   </table>
