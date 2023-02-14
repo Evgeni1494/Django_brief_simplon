@@ -5,6 +5,7 @@
 }
 .Logo{
     text-decoration: none;
+    padding-right: 1000px;
 }
 .ItemsNav li{
     display:inline-block;
@@ -29,6 +30,14 @@
     text-decoration: none;
 }
 
+body {
+    justify-content: flex;
+    
+}
 
-
-
+nav{
+    background-color: aqua;
+}
+footer {
+    background-color: aqua;
+}
