@@ -39,6 +39,7 @@ def appointment_detail(request, appointment_id):
 
 @login_required
 def add_note(request, appointment_id):
+    appointment = Appointment.objects.all()
     if request.method == 'POST':
         form = AddNote(request.POST)
         if form.is_valid():
@@ -46,7 +47,7 @@ def add_note(request, appointment_id):
             note.created_by = request.user
             note.save()
     
-            return redirect('appointment/appointment_detail.html', appointment_id=appointment_id)
+            return redirect('appointment_detail.html', appointment_id=appointment_id)
         # text = request.POST.get('text')
         # appointment = Appointment.objects.get(id=appointment_id)
         # Note.objects.create(appointment=appointment, text=text, created_by=request.user)
