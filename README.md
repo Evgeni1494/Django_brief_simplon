@@ -16,3 +16,10 @@ Il n'est pas complét et necessite amélioration que ce soit du coté back-end o
 
 Les fonctionnalités qui sont disponibles sont : Sign-up, Login, Prise de RDV, affichage des RDV pris pour l'utilisateur Admin.
 
+Le compte administrateur pour tester les fonctions admin est le suivant :
+
+Login : CoachSportif
+MDP : azerty123456789
+
+
+La DB associé au projet est requise pour tester differentes fonctions.
